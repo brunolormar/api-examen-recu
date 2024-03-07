@@ -9,6 +9,7 @@ export class GamasController {
 
   @Post()
   create(@Body() createGamaDto: CreateGamaDto) {
+    console.log('usuario creado')
     return this.gamasService.create(createGamaDto);
   }
 
