@@ -33,9 +33,15 @@ export class GamasService {
     return `This action returns all gamas`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} gama`;
+  findOne(Gama: string) {
+    const gama= this.gamaRepository.findOne({
+      where:{
+        Gama
+      }
+    });
+    return gama;
   }
+
 
   @Patch()
   update(id: number, updateGamaDto: UpdateGamaDto) {
@@ -44,5 +50,17 @@ export class GamasService {
 
   remove(id: number) {
     return `This action removes a #${id} gama`;
+  }
+
+  async deleteAllGamas(){
+    const query = this.gamaRepository.createQueryBuilder('gama');
+    try{
+      return await query
+        .delete()
+        .where({})
+        .execute()
+    }catch(error){
+      throw new InternalServerErrorException('sysadmin ...')
+    }
   }
 }

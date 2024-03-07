@@ -9,6 +9,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [GamasService],
   imports: [
     TypeOrmModule.forFeature([Gama])
-  ]
+  ],
+  exports: [ GamasService, TypeOrmModule]
 })
 export class GamasModule {}

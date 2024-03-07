@@ -9,6 +9,7 @@ export class ProductosController {
 
   @Post()
   create(@Body() createProductoDto: CreateProductoDto) {
+    console.log('usuario creado')
     return this.productosService.create(createProductoDto);
   }
 
@@ -18,8 +19,8 @@ export class ProductosController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productosService.findOne(+id);
+  findOne(@Param('id') Gama: string) {
+    return this.productosService.findOne(Gama);
   }
 
   @Patch(':id')

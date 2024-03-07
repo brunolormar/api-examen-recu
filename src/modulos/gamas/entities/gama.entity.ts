@@ -1,4 +1,5 @@
-import { Column, PrimaryColumn } from "typeorm";
+import { Producto } from "src/modulos/productos/entities/producto.entity";
+import { Column, OneToMany, PrimaryColumn } from "typeorm";
 
 export class Gama {
     @PrimaryColumn('increment')
@@ -9,4 +10,11 @@ export class Gama {
 
     @Column('text')
     Imagen: string;
+
+    @OneToMany(
+        () => Producto,
+        (producto) => producto.gama,
+        { eager: true }
+    )
+    productos?: Producto[] //virtual
 }

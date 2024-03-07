@@ -19,8 +19,8 @@ export class GamasController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.gamasService.findOne(+id);
+  findOne(@Param('id') Gama: string) {
+    return this.gamasService.findOne(Gama);
   }
 
   @Patch(':id')
